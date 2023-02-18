@@ -19,11 +19,11 @@ function App() {
       <main>
         <div className="container">
           <h1>Отправить заявку на участие в семинаре</h1>
+          <p>
+            Организаторы свяжутся с вами для подтверждения записи.
+            <br /> Участие в семинаре <ins>бесплатное</ins>.
+          </p>
           <form className="form" onSubmit={submitHandler}>
-            <p>
-              Организаторы свяжутся с вами для подтверждения записи.
-              <br /> Участие в семинаре <ins>бесплатное</ins>.
-            </p>
             <div className="input-container">
               <label htmlFor="name">Ваше имя:</label>
               <OutlinedInput
@@ -33,7 +33,12 @@ function App() {
                 color="secondary"
                 type="text"
                 value={userName}
-                sx={{ fontSize: "20px" }}
+                sx={{
+                  fontSize: {
+                    xs: "15px",
+                    sm: "20px",
+                  },
+                }}
                 onChange={(e) => setUserName(e.target.value)}
               />
             </div>
@@ -47,7 +52,12 @@ function App() {
                 id={"email"}
                 value={email}
                 variant={"outlined"}
-                sx={{ fontSize: "20px" }}
+                sx={{
+                  fontSize: {
+                    xs: "15px",
+                    sm: "20px",
+                  },
+                }}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -59,7 +69,12 @@ function App() {
                 onChange={(e) => {
                   setSeminar(e.target.value);
                 }}
-                sx={{ fontSize: "20px" }}
+                sx={{
+                  fontSize: {
+                    xs: "15px",
+                    sm: "20px",
+                  },
+                }}
               >
                 {seminars.map((seminar, index) => (
                   <MenuItem

@@ -17,7 +17,8 @@ h1{
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-between; */
+  gap: 20px;
   font-size: 20px;
   font-weight: 400;
 }
@@ -36,4 +37,30 @@ h1{
 
 .form-description{
   font-size: 14px;
+}
+
+@media screen and (max-device-width: 780px){
+  .form-footer{
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (max-device-width: 680px){
+  h1{
+    font-size: 25px;
+  }
+
+  .container{
+    padding: 2% 10%;
+    
+  }
+
+  .form{
+    font-size: 15px;
+  }
+
+  .form-description{
+    font-size: 10px;
+  }
 }
