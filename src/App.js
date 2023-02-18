@@ -24,48 +24,55 @@ function App() {
               Организаторы свяжутся с вами для подтверждения записи.
               <br /> Участие в семинаре <ins>бесплатное</ins>.
             </p>
-            <label htmlFor="name">Ваше имя:</label>
-            <OutlinedInput
-              id={"name"}
-              maxRows={1}
-              placeholder="Иванов Алексей"
-              color="secondary"
-              type="text"
-              value={userName}
-              sx={{ fontSize: "20px" }}
-              onChange={(e) => setUserName(e.target.value)}
-            />
-            <label htmlFor="email">Контактный email:</label>
-            <OutlinedInput
-              maxRows={1}
-              placeholder="example@mail.com"
-              color="secondary"
-              type="text"
-              id={"email"}
-              value={email}
-              variant={"outlined"}
-              sx={{ fontSize: "20px" }}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label>Интересующий семинар:</label>
-            <Select
-              value={seminar}
-              color={"secondary"}
-              onChange={(e) => {
-                setSeminar(e.target.value);
-              }}
-              sx={{ fontSize: "20px" }}
-            >
-              {seminars.map((seminar, index) => (
-                <MenuItem
-                  key={seminar + index}
-                  value={seminar}
-                  color={"secondary"}
-                >
-                  {seminar}
-                </MenuItem>
-              ))}
-            </Select>
+            <div className="input-container">
+              <label htmlFor="name">Ваше имя:</label>
+              <OutlinedInput
+                id={"name"}
+                maxRows={1}
+                placeholder="Иванов Алексей"
+                color="secondary"
+                type="text"
+                value={userName}
+                sx={{ fontSize: "20px" }}
+                onChange={(e) => setUserName(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <label htmlFor="email">Контактный email:</label>
+              <OutlinedInput
+                maxRows={1}
+                placeholder="example@mail.com"
+                color="secondary"
+                type="text"
+                id={"email"}
+                value={email}
+                variant={"outlined"}
+                sx={{ fontSize: "20px" }}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <label>Интересующий семинар:</label>
+              <Select
+                value={seminar}
+                color={"secondary"}
+                onChange={(e) => {
+                  setSeminar(e.target.value);
+                }}
+                sx={{ fontSize: "20px" }}
+              >
+                {seminars.map((seminar, index) => (
+                  <MenuItem
+                    key={seminar + index}
+                    value={seminar}
+                    color={"secondary"}
+                  >
+                    {seminar}
+                  </MenuItem>
+                ))}
+              </Select>
+            </div>
+
             <div className="form-footer">
               <span className="form-description">
                 Все поля обязательны для заполнения.
