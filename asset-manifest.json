@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/QmediaTestTask/static/css/main.51fdb612.css",
+    "main.js": "/QmediaTestTask/static/js/main.ce86a115.js",
+    "static/js/787.e8769ff5.chunk.js": "/QmediaTestTask/static/js/787.e8769ff5.chunk.js",
+    "index.html": "/QmediaTestTask/index.html",
+    "main.51fdb612.css.map": "/QmediaTestTask/static/css/main.51fdb612.css.map",
+    "main.ce86a115.js.map": "/QmediaTestTask/static/js/main.ce86a115.js.map",
+    "787.e8769ff5.chunk.js.map": "/QmediaTestTask/static/js/787.e8769ff5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51fdb612.css",
+    "static/js/main.ce86a115.js"
+  ]
+}
