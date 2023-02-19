@@ -15,9 +15,9 @@ import "./App.css";
 function App() {
   const [seminars, setSeminars] = useState([
     "Выбрать",
-    "First",
-    "Second",
-    "Third",
+    "Семинар №1",
+    "Семинар №2",
+    "Семинар №3",
   ]);
 
   const [userName, setUserName] = useState("");
