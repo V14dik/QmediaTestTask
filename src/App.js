@@ -5,9 +5,11 @@ import {
   Select,
   FormControl,
   FormHelperText,
-  InputLabel,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 function App() {
@@ -17,6 +19,10 @@ function App() {
     "Second",
     "Third",
   ]);
+
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [seminar, setSeminar] = useState(seminars[0]);
 
   const checkEmail = () => {
     if (
@@ -34,10 +40,6 @@ function App() {
     } else setNameValidationStatus(false);
   };
 
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [seminar, setSeminar] = useState(seminars[0]);
-
   const [isFormValid, setValidationStatus] = useState(false);
 
   const [isEmailValid, setEmailValidationStatus] = useState(true);
@@ -48,14 +50,36 @@ function App() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    checkEmail();
-    checkName();
-    setValidationStatus(isEmailValid && isNameValid && isSeminarSelected);
+    sendToEmail();
   };
+
+  const sendToEmail = () => {
+    console.log("email");
+    emailjs.send(
+      "service_dvgd7n6",
+      "template_blvlimi",
+      {
+        name: userName,
+        seminar: seminar,
+      },
+      "SUzwqr6UVdCtHPKAV"
+    );
+    toast.success(
+      "Ваша заявка успешно отправлена и находится в обработке. Ожидайте email с подтверждением бронирования.",
+      { position: toast.POSITION.TOP_CENTER, theme: "colored" }
+    );
+  };
+
+  useEffect(() => {
+    email && checkEmail();
+    userName && checkName();
+    setValidationStatus(!(isEmailValid && isNameValid && isSeminarSelected));
+  }, [email, userName, isEmailValid, isNameValid, isSeminarSelected]);
 
   return (
     <div className="app">
       <main>
+        <ToastContainer />
         <div className="container">
           <h1>Отправить заявку на участие в семинаре</h1>
           <p>
@@ -81,7 +105,6 @@ function App() {
                   }}
                   onChange={(e) => {
                     setUserName(e.target.value);
-                    checkName();
                   }}
                   error={!isNameValid ? true : false}
                 />
@@ -112,7 +135,6 @@ function App() {
                   error={!isEmailValid ? true : false}
                   onChange={(e) => {
                     setEmail(e.target.value.trim());
-                    checkEmail();
                   }}
                 />
                 {!isEmailValid && (
@@ -169,7 +191,7 @@ function App() {
                 variant="contained"
                 color="secondary"
                 size="large"
-                disabled={!(isEmailValid && isNameValid && isSeminarSelected)}
+                disabled={isFormValid}
               >
                 Отправить
               </Button>
