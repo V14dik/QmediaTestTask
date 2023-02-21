@@ -61,6 +61,7 @@ function App() {
       {
         name: userName,
         seminar: seminar,
+        to: email,
       },
       "SUzwqr6UVdCtHPKAV"
     );
